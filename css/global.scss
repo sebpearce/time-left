@@ -1,0 +1,543 @@
+@import "_reset.scss";
+// @import "_other_includes_go_here.scss";
+
+$hue: 0;
+$hue-complement: ($hue + 180) % 360;
+
+$page-bg-color: hsl($hue,40%,13%);
+$pie-bg-color: hsl($hue,40%,11%);
+// $pie-bg-color: $page-bg-color;
+$num-color: hsla($hue,100%,80%,0.5);
+$sleep-slice-color: hsl($hue,40%,30%);
+$sleep-slice-color-hover: hsl($hue,40%,70%);
+$work-slice-color: hsl($hue,40%,50%);
+$work-slice-color-hover: hsl($hue,40%,70%);
+
+$mini-clock-face-bg-color: hsl($hue,40%,11%);
+$mini-clock-face-bg-color-hover: hsl($hue,40%,30%);
+$mini-clock-slice-color: hsl($hue,40%,40%);
+$mini-clock-slice-color-hover: hsl($hue,40%,60%);
+$mini-clock-busy-font: 200 13px 'Helvetica Neue';
+$mini-clock-busy-color: hsl($hue,40%,60%);
+
+// global scss goes here
+$page-background-color: hsl($hue,30%,7%);
+$default-font-family: 'Helvetica Neue';
+$default-text-color: hsl($hue,40%,70%);
+$default-link-color: hsl($hue,70%,50%);
+$default-font-size: 16px;
+$default-line-height: 150%;
+
+$label-color: hsla($hue,100%,80%,0.5);
+$small-label-font: 200 10px 'Helvetica Neue';
+$small-label-font-color: hsla($hue,70%,80%,0.4);
+
+$timer-font: 100 60px 'Helvetica Neue';
+$timer-color: hsla($hue,70%,80%,0.9);
+$timer-font-size: 60px;
+$timer-label-font: $small-label-font;
+$timer-label-font-color: $small-label-font-color;
+$free-time-label-font: 200 10px 'Helvetica Neue';
+$free-time-font: $timer-font;
+$free-time-color: hsla($hue,70%,80%,0.9);
+$time-inputs-font: 300 20px 'Helvetica Neue';
+$time-inputs-font-color: hsla($hue,70%,80%,0.6);
+$time-inputs-focus-color: hsla($hue,70%,80%,0.9);
+$time-inputs-background-color: hsla($hue,100%,0%,0.2);
+$time-inputs-background-focus-color: hsla($hue,50%,0%,0.1);
+$time-inputs-background-focus-border: 2px solid hsla($hue,90%,80%,0.7);
+$time-inputs-background-focus-shadow: 0 0 5px 3px hsla($hue,90%,70%,0.5);
+// $time-inputs-labels-font: 400 12px 'Helvetica Neue';
+$time-inputs-labels-font: $small-label-font;
+// $time-inputs-labels-font-color: hsla($hue,70%,80%,0.5);
+$time-inputs-labels-font-color: $small-label-font-color;
+
+$ring-color: hsla($hue,100%,80%,0.1);
+$ring-border-top-color: hsla($hue,100%,80%,0.7);
+$ring-2-color: hsla($hue,100%,80%,0.1);
+$ring-2-border-top-color: hsla($hue,100%,80%,0.4);
+
+$day-name-font: $small-label-font;
+$day-name-color: $small-label-font-color;
+$day-number-font: $timer-font;
+$month-name-font: $small-label-font;
+
+$tooltip-label-font: 200 10px 'Helvetica Neue';
+$tooltip-label-color: #aaa;
+$tooltip-data-font: 100 35px 'Helvetica Neue';
+$tooltip-data-color: #eee;
+$tooltip-hrs-font: 200 10px 'Helvetica Neue';
+$tooltip-hrs-color: #aaa;
+$tooltip-bg-color: hsla(0,0%,0%,0.6);
+
+@mixin electric-border {
+  border: 1px solid hsla($hue,100%,70%,0.2);
+  border-radius: 20px;
+}
+
+html { height: 100%; overflow: hidden; }
+
+body {
+  background-color: $page-bg-color;
+  font-family: $default-font-family;
+  color: $default-text-color;
+  height: 100%;
+  line-height: $default-line-height;
+  overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 1em 0;
+  color: $default-text-color;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: $default-font-size * 2;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: $default-font-size * 1.5;
+}
+
+p {
+  margin: 1em 0;
+}
+
+p, ul, ol, blockquote, pre {
+  line-height: $default-line-height;
+  letter-spacing: 0.1px;
+}
+
+ul, ol {
+  margin: 0;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+a {
+  color: $default-link-color;
+  text-decoration: none;
+  &:hover {
+    // color: lighten($default-link-color,10%);
+    text-decoration: underline;
+  }
+}
+
+.page-wrapper {
+  position: relative;
+  // background-color: #333;
+  // background-color: $page-background-color;
+  // height: 100%;
+  padding: 50px;
+  width: 930px;
+  margin: 50px auto 0 auto;
+}
+
+
+svg {
+  display: block;
+  background: none;
+}
+
+#pie {
+  fill: $pie-bg-color;
+}
+
+#sleep-slice {
+  fill: $sleep-slice-color;
+  transition: fill 0.3s ease;
+}
+
+#sleep-slice:hover {
+  fill: $sleep-slice-color-hover;
+}
+
+#work-slice {
+  fill: $work-slice-color;
+  transition: fill 0.3s ease;  
+}
+
+#work-slice:hover {
+  fill: $work-slice-color-hover;  
+}
+
+.number-label {
+  fill: $num-color;
+  font-family: 'Helvetica Neue';
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.crosshairs {
+  stroke: hsla($hue, 100%, 80%, 0.3);
+  pointer-events: none;
+}
+
+#hour-hand,
+#hour-hand-opposite {
+  // stroke: hsl($hue-complement,50%,50%);
+  stroke: hsl($hue,50%,80%);
+  stroke-width: 2;
+  pointer-events: none;
+}
+
+#second-hand,
+#second-hand-opposite {
+  stroke: hsl($hue,50%,80%);
+  pointer-events: none;
+}
+
+#second-hand-circle {
+  fill: hsl($hue,50%,80%);
+  pointer-events: none;
+}
+
+.tooltip {
+  position: absolute;
+  float: left;
+  min-width: 80px;
+  // height: 80px;
+  top: 300px;
+  left: 70px;
+  padding: 7px 9px; 
+  z-index: 5;
+  display: none;
+  border-radius: 7px;
+  background-color: $tooltip-bg-color;
+  // box-shadow: 0 3px 3px #222;
+  pointer-events: none;
+  text-align: left;
+  white-space:nowrap; 
+}
+
+.tooltip-label {
+  display: block;
+  font: $tooltip-label-font;
+  color: $tooltip-label-color;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tooltip-data {
+  font: $tooltip-data-font;
+  color: $tooltip-data-color;
+}
+
+.tooltip-hrs {
+  font: $tooltip-hrs-font;
+  color: $tooltip-hrs-color;
+  letter-spacing: 1px;
+}
+
+#mini-clock-container {
+  position: absolute;
+  top: 418px;
+  right: 0;
+}
+
+#mini-clock {
+
+}
+
+#mini-clock-face {
+  fill: $mini-clock-face-bg-color;
+  transition: fill 0.3s ease;
+  &:hover {
+    fill: $mini-clock-face-bg-color-hover;
+  }
+}
+
+#mini-clock-slice {
+  fill: $mini-clock-slice-color;
+  transition: fill 0.3s ease;
+  &:hover {
+    fill: $mini-clock-slice-color-hover;
+  }
+}
+
+#mini-clock-busy {
+  // position: absolute;
+  // top: 125;
+  // left: 125; 
+  margin: -130px auto 0 auto;
+  width: 100px;
+  text-align: center;
+  font: $mini-clock-busy-font;
+  color: $mini-clock-busy-color;
+}
+
+
+#center-container {
+  // background-color: #222;
+  width: 550px;
+  height: 550px;
+  display: block;
+  position: relative;
+  top: 0;
+  margin: -25px auto 0 auto;
+  // left: 25%;
+}
+
+#main-clock-container {
+  position: relative;
+  // background-color: hsla(0,0%,30%,0.3);
+  text-align: center;
+  width: 500px;
+  height: 500px;
+  margin: 0 auto 20px auto;
+}
+
+
+#timer-container {
+  display: block;
+  width: 300px;
+  position: absolute;
+  top: 560px;
+  left: 50%;
+  margin: 0 auto 0 -150px;
+  font: $timer-label-font;
+  text-align: center;
+}
+
+#timer-display {
+  @include electric-border;
+  font: $timer-font;
+  color: $timer-color;
+  width: 280px;
+  display: block;
+  line-height: 100%;
+  margin: 0 auto;
+  padding: 10px 0 12px 0;
+  text-rendering: optimizeLegibility;
+  transition: all 1s ease-in-out;
+}
+
+label[for="timer-display"] {
+  color: $small-label-font-color;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  // word-spacing: 1px;
+  font: $timer-label-font;
+  margin-bottom: 10px;
+}
+
+
+#free-time-container {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 140px;
+  margin: 15px auto 0 auto;
+  text-transform: uppercase;
+  width: 150px;
+  padding: 19px 0;
+  text-align: center;
+  @include electric-border;
+}
+
+label[for="free-time"] {
+  font: $free-time-label-font;
+  color: $small-label-font-color;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  // word-spacing: 1px;
+  margin-bottom: 2px;
+}
+
+#free-time {
+  font: $free-time-font;
+}
+
+
+#time-inputs-container {
+  position: absolute;
+  width: 150px;
+  // background-color: hsla(0,0%,100%,0.1);
+  left: 0;
+  top: 0;
+  text-align: center;
+  padding: 25px 0 15px 0;
+  @include electric-border;
+}
+
+#bedtime,
+#waketime,
+#go-to-work,
+#come-home,
+label[for="bedtime"],
+label[for="waketime"],
+label[for="go-to-work"],
+label[for="come-home"] {
+  display: block;
+  margin: 0 auto;
+}
+
+label[for="bedtime"],
+label[for="waketime"],
+label[for="go-to-work"],
+label[for="come-home"] {
+  text-transform: uppercase;
+  font: $time-inputs-labels-font;
+  color: $time-inputs-labels-font-color;
+  letter-spacing: 1px;
+}
+
+#bedtime,
+#waketime,
+#go-to-work,
+#come-home {
+  outline: none;
+  border: none;
+  background-color: $time-inputs-background-color;
+  border-radius: 10px;
+  font: $time-inputs-font;
+  width: 80px;
+  height: 60px;
+  text-align: center;
+  color: $time-inputs-font-color;
+  letter-spacing: 0.5px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  transition: background-color 0.5s, border 0.5s, box-shadow 0.5s,
+              color 0.5s;
+  &:focus {
+    background-color: $time-inputs-background-focus-color;
+    border: $time-inputs-background-focus-border;
+    box-shadow: $time-inputs-background-focus-shadow;
+    color: $time-inputs-focus-color;
+  }
+  &::selection {
+    background: hsla($hue,40%,60%,0.5);
+  }
+}
+
+
+#date-container {
+  position: absolute;
+  top: 0px;
+  right: 0;
+  width: 150px;
+  text-align: center;
+  padding: 23px 0;
+  @include electric-border;
+}
+
+#day-name {
+  font: $day-name-font;
+  color: $small-label-font-color;
+  display: block;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  letter-spacing: 1px;
+}
+
+#day-number {
+  display: block;
+  font: $day-number-font;
+  text-align: center;
+  line-height: 100%;
+}
+
+
+#month-name {
+  font: $month-name-font;
+  color: $small-label-font-color;
+  display: block;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  letter-spacing: 1px;
+}
+
+
+
+/* Animations */
+
+@keyframes turn_clockwise {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes turn_clockwise {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes turn_counter_clockwise {
+    0% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+@-webkit-keyframes turn_counter_clockwise {
+    0% {
+        -webkit-transform: rotate(360deg);
+    }
+    100% {
+        -webkit-transform: rotate(0deg);
+    }
+}
+
+
+
+#ring {
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  position: absolute;
+  display: inline-block;
+  border: 3px solid $ring-color;
+  text-align: center;
+  border-top-color: $ring-border-top-color;
+  width: 530px;
+  height: 530px;
+  margin: 0 auto;
+  left: 50%;
+  margin-left: -265px;
+  top: -15px;
+  border-radius: 100%;
+  animation: turn_clockwise 60s linear infinite;
+  -webkit-animation: turn_clockwise 60s linear infinite;
+}
+
+#ring-2 {
+  box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  position: absolute;
+  display: inline-block;
+  border: 2px dotted $ring-2-color;
+  text-align: center;
+  border-top-color: $ring-2-border-top-color;
+  width: 550px;
+  height: 550px;
+  margin: 0 auto;
+  left: 50%;
+  margin-left: -275px;
+  top: -25px;
+  border-radius: 100%;
+  animation: turn_counter_clockwise 30s linear infinite;
+  -webkit-animation: turn_counter_clockwise 30s linear infinite;
+}
+
+
+
+
