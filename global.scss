@@ -1,7 +1,7 @@
 @import "_reset.scss";
 // @import "_other_includes_go_here.scss";
 
-$hue: 0;
+$hue: 205;
 $hue-complement: ($hue + 180) % 360;
 
 $page-bg-color: hsl($hue,40%,13%);

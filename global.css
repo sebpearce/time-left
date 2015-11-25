@@ -56,16 +56,16 @@ html {
   overflow: hidden; }
 
 body {
-  background-color: #2e1414;
+  background-color: #14232e;
   font-family: "Helvetica Neue";
-  color: #d19494;
+  color: #94b8d1;
   height: 100%;
   line-height: 150%;
   overflow: hidden; }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 1em 0;
-  color: #d19494;
+  color: #94b8d1;
   font-weight: bold; }
 
 h1 {
@@ -92,7 +92,7 @@ em {
   font-style: italic; }
 
 a {
-  color: #d92626;
+  color: #268ed9;
   text-decoration: none; }
   a:hover {
     text-decoration: underline; }
@@ -108,45 +108,45 @@ svg {
   background: none; }
 
 #pie {
-  fill: #271111; }
+  fill: #111e27; }
 
 #sleep-slice {
-  fill: #6b2e2e;
+  fill: #2e526b;
   transition: fill 0.3s ease; }
 
 #sleep-slice:hover {
-  fill: #d19494; }
+  fill: #94b8d1; }
 
 #work-slice {
-  fill: #b34d4d;
+  fill: #4d88b3;
   transition: fill 0.3s ease; }
 
 #work-slice:hover {
-  fill: #d19494; }
+  fill: #94b8d1; }
 
 .number-label {
-  fill: rgba(255, 153, 153, 0.5);
+  fill: rgba(153, 213, 255, 0.5);
   font-family: 'Helvetica Neue';
   font-weight: 400;
   font-size: 13px; }
 
 .crosshairs {
-  stroke: rgba(255, 153, 153, 0.3);
+  stroke: rgba(153, 213, 255, 0.3);
   pointer-events: none; }
 
 #hour-hand,
 #hour-hand-opposite {
-  stroke: #e6b3b3;
+  stroke: #b3d0e6;
   stroke-width: 2;
   pointer-events: none; }
 
 #second-hand,
 #second-hand-opposite {
-  stroke: #e6b3b3;
+  stroke: #b3d0e6;
   pointer-events: none; }
 
 #second-hand-circle {
-  fill: #e6b3b3;
+  fill: #b3d0e6;
   pointer-events: none; }
 
 .tooltip {
@@ -186,23 +186,23 @@ svg {
   right: 0; }
 
 #mini-clock-face {
-  fill: #271111;
+  fill: #111e27;
   transition: fill 0.3s ease; }
   #mini-clock-face:hover {
-    fill: #6b2e2e; }
+    fill: #2e526b; }
 
 #mini-clock-slice {
-  fill: #8f3d3d;
+  fill: #3d6d8f;
   transition: fill 0.3s ease; }
   #mini-clock-slice:hover {
-    fill: #c27070; }
+    fill: #70a0c2; }
 
 #mini-clock-busy {
   margin: -130px auto 0 auto;
   width: 100px;
   text-align: center;
   font: 200 13px "Helvetica Neue";
-  color: #c27070; }
+  color: #70a0c2; }
 
 #center-container {
   width: 550px;
@@ -230,10 +230,10 @@ svg {
   text-align: center; }
 
 #timer-display {
-  border: 1px solid rgba(255, 102, 102, 0.2);
+  border: 1px solid rgba(102, 191, 255, 0.2);
   border-radius: 20px;
   font: 100 60px "Helvetica Neue";
-  color: rgba(240, 168, 168, 0.9);
+  color: rgba(168, 210, 240, 0.9);
   width: 280px;
   display: block;
   line-height: 100%;
@@ -243,7 +243,7 @@ svg {
   transition: all 1s ease-in-out; }
 
 label[for="timer-display"] {
-  color: rgba(240, 168, 168, 0.4);
+  color: rgba(168, 210, 240, 0.4);
   display: block;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -260,12 +260,12 @@ label[for="timer-display"] {
   width: 150px;
   padding: 19px 0;
   text-align: center;
-  border: 1px solid rgba(255, 102, 102, 0.2);
+  border: 1px solid rgba(102, 191, 255, 0.2);
   border-radius: 20px; }
 
 label[for="free-time"] {
   font: 200 10px "Helvetica Neue";
-  color: rgba(240, 168, 168, 0.4);
+  color: rgba(168, 210, 240, 0.4);
   display: block;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -281,7 +281,7 @@ label[for="free-time"] {
   top: 0;
   text-align: center;
   padding: 25px 0 15px 0;
-  border: 1px solid rgba(255, 102, 102, 0.2);
+  border: 1px solid rgba(102, 191, 255, 0.2);
   border-radius: 20px; }
 
 #bedtime,
@@ -301,7 +301,7 @@ label[for="go-to-work"],
 label[for="come-home"] {
   text-transform: uppercase;
   font: 200 10px "Helvetica Neue";
-  color: rgba(240, 168, 168, 0.4);
+  color: rgba(168, 210, 240, 0.4);
   letter-spacing: 1px; }
 
 #bedtime,
@@ -316,7 +316,7 @@ label[for="come-home"] {
   width: 80px;
   height: 60px;
   text-align: center;
-  color: rgba(240, 168, 168, 0.6);
+  color: rgba(168, 210, 240, 0.6);
   letter-spacing: 0.5px;
   margin-top: 5px;
   margin-bottom: 20px;
@@ -326,14 +326,14 @@ label[for="come-home"] {
   #go-to-work:focus,
   #come-home:focus {
     background-color: rgba(0, 0, 0, 0.1);
-    border: 2px solid rgba(250, 158, 158, 0.7);
-    box-shadow: 0 0 5px 3px rgba(247, 110, 110, 0.5);
-    color: rgba(240, 168, 168, 0.9); }
+    border: 2px solid rgba(158, 212, 250, 0.7);
+    box-shadow: 0 0 5px 3px rgba(110, 190, 247, 0.5);
+    color: rgba(168, 210, 240, 0.9); }
   #bedtime::selection,
   #waketime::selection,
   #go-to-work::selection,
   #come-home::selection {
-    background: rgba(194, 112, 112, 0.5); }
+    background: rgba(112, 160, 194, 0.5); }
 
 #date-container {
   position: absolute;
@@ -342,12 +342,12 @@ label[for="come-home"] {
   width: 150px;
   text-align: center;
   padding: 23px 0;
-  border: 1px solid rgba(255, 102, 102, 0.2);
+  border: 1px solid rgba(102, 191, 255, 0.2);
   border-radius: 20px; }
 
 #day-name {
   font: 200 10px "Helvetica Neue";
-  color: rgba(240, 168, 168, 0.4);
+  color: rgba(168, 210, 240, 0.4);
   display: block;
   text-transform: uppercase;
   margin-bottom: 0;
@@ -361,7 +361,7 @@ label[for="come-home"] {
 
 #month-name {
   font: 200 10px "Helvetica Neue";
-  color: rgba(240, 168, 168, 0.4);
+  color: rgba(168, 210, 240, 0.4);
   display: block;
   text-transform: uppercase;
   margin-bottom: 0;
@@ -394,9 +394,9 @@ label[for="come-home"] {
   -webkit-box-sizing: border-box;
   position: absolute;
   display: inline-block;
-  border: 3px solid rgba(255, 153, 153, 0.1);
+  border: 3px solid rgba(153, 213, 255, 0.1);
   text-align: center;
-  border-top-color: rgba(255, 153, 153, 0.7);
+  border-top-color: rgba(153, 213, 255, 0.7);
   width: 530px;
   height: 530px;
   margin: 0 auto;
@@ -413,9 +413,9 @@ label[for="come-home"] {
   -webkit-box-sizing: border-box;
   position: absolute;
   display: inline-block;
-  border: 2px dotted rgba(255, 153, 153, 0.1);
+  border: 2px dotted rgba(153, 213, 255, 0.1);
   text-align: center;
-  border-top-color: rgba(255, 153, 153, 0.4);
+  border-top-color: rgba(153, 213, 255, 0.4);
   width: 550px;
   height: 550px;
   margin: 0 auto;
