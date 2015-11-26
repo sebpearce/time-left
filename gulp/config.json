@@ -1,0 +1,84 @@
+{
+
+  "dist": "dist/",
+
+  "root": {
+    "src": "src/",
+    "dest": "public/"
+  },
+
+  "tasks": {
+
+    "browserSync": {
+      "server": {
+        "baseDir": "public"
+      }
+    },
+
+    "scripts": {
+      "src": "scripts",
+      "dest": "js",
+      "extensions": ["js"],
+      "browserify": {
+        "mainSrc": "scripts/main.js",
+        "outputFile": "main.bundled.js"
+      },
+      "jshint": {
+        "reporter": "default"
+      }
+    },
+
+    "styles": {
+      "src": "scss",
+      "dest": "css",
+      "mainSrc": "scss/style.scss",
+      "extensions": ["scss", "css", "sass"],
+      "autoprefixer": {
+        "browsers": ["last 2 versions"]
+      },
+      "sass": {
+        "style": "compressed"
+      }
+    },
+
+    "html": {
+      "src": "./",
+      "dest": "./",
+      "extensions": ["html", "json"]
+    },
+
+    "compressImages": {
+      "src": "images",
+      "dest": "img",
+      "extensions": ["jpg", "png", "svg", "gif"]
+    },
+
+    "clean": {
+
+    },
+
+    "watch": {
+      "watchableTasks": ["scripts", "styles", "html"]
+    }
+
+  },
+
+  "paths": {
+    "scripts": ["scripts/*.js"],
+    "vendor": ["scripts/vendor/**/*"],
+    "styles": ["scss/*.scss"],
+    "html": ["index.html"],
+    "images": ["images/*"],
+    "extras": ["favicon.ico"]
+  },
+
+  "outPaths": {
+    "scripts": "js/",
+    "vendor": "js/",
+    "styles": "css/",
+    "html": "/",
+    "images": "img/",
+    "extras": "/"
+  }
+
+}

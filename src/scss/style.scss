@@ -1,5 +1,4 @@
 @import "_reset.scss";
-// @import "_other_includes_go_here.scss";
 
 $hue: 205;
 $hue-complement: ($hue + 180) % 360;
@@ -162,11 +161,11 @@ svg {
 
 #work-slice {
   fill: $work-slice-color;
-  transition: fill 0.3s ease;  
+  transition: fill 0.3s ease;
 }
 
 #work-slice:hover {
-  fill: $work-slice-color-hover;  
+  fill: $work-slice-color-hover;
 }
 
 .number-label {
@@ -207,7 +206,7 @@ svg {
   // height: 80px;
   top: 300px;
   left: 70px;
-  padding: 7px 9px; 
+  padding: 7px 9px;
   z-index: 5;
   display: none;
   border-radius: 7px;
@@ -215,7 +214,7 @@ svg {
   // box-shadow: 0 3px 3px #222;
   pointer-events: none;
   text-align: left;
-  white-space:nowrap; 
+  white-space:nowrap;
 }
 
 .tooltip-label {
@@ -266,7 +265,7 @@ svg {
 #mini-clock-busy {
   // position: absolute;
   // top: 125;
-  // left: 125; 
+  // left: 125;
   margin: -130px auto 0 auto;
   width: 100px;
   text-align: center;
@@ -539,5 +538,7 @@ label[for="come-home"] {
 }
 
 
-
-
+.testicles {
+  transition: all 0.2 ease;
+  display: flex;
+}
