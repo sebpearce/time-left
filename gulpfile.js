@@ -15,7 +15,6 @@ var gulp = require('./gulp')([
 
 gulp.task('default', function (cb) {
   runSeq('clean', [
-    'clean',
     'html',
     'scripts',
     'styles',
