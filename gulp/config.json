@@ -1,7 +1,5 @@
 {
 
-  "dist": "dist/",
-
   "root": {
     "src": "src/",
     "dest": "public/"
@@ -61,24 +59,6 @@
       "watchableTasks": ["scripts", "styles", "html"]
     }
 
-  },
-
-  "paths": {
-    "scripts": ["scripts/*.js"],
-    "vendor": ["scripts/vendor/**/*"],
-    "styles": ["scss/*.scss"],
-    "html": ["index.html"],
-    "images": ["images/*"],
-    "extras": ["favicon.ico"]
-  },
-
-  "outPaths": {
-    "scripts": "js/",
-    "vendor": "js/",
-    "styles": "css/",
-    "html": "/",
-    "images": "img/",
-    "extras": "/"
   }
 
 }
