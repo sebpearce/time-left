@@ -52,18 +52,18 @@
     radius: 220,
     numDistFromEdge: 15,
     secondHandDistFromEdge: 5,
-    secondHandLengthOfOtherSide: 70,
+    secondHandLengthOfShortSide: 70,
     hourHandDistFromEdge: 40,
-    hourHandLengthOfOtherSide: 30,
+    hourHandLengthOfShortSide: 30,
     increment: 0.03,
     delay: 10,
     svg: document.getElementById('main-clock'),
     sleepSlice: document.getElementById('sleep-slice'),
     workSlice: document.getElementById('work-slice'),
     hourHand: document.getElementById('hour-hand'),
-    hourHandOpposite: document.getElementById('hour-hand-opposite'),
+    hourHandShortSide: document.getElementById('hour-hand-opposite'),
     secondHand: document.getElementById('second-hand'),
-    secondHandOpposite: document.getElementById('second-hand-opposite'),
+    secondHandShortSide: document.getElementById('second-hand-opposite'),
   };
 
   clock.centerX = (clock.width / 2) + 30;
@@ -253,11 +253,11 @@
 
     var opp = (h + 12) % 24;
 
-    x = clock.getX(opp, clock.hourHandLengthOfOtherSide);
-    y = clock.getY(opp, clock.hourHandLengthOfOtherSide);
+    x = clock.getX(opp, clock.hourHandLengthOfShortSide);
+    y = clock.getY(opp, clock.hourHandLengthOfShortSide);
 
-    clock.hourHandOpposite.setAttribute('x2', x);
-    clock.hourHandOpposite.setAttribute('y2', y);
+    clock.hourHandShortSide.setAttribute('x2', x);
+    clock.hourHandShortSide.setAttribute('y2', y);
 
     // while we're at it, update the date and timer at the bottom
     updateDate();
@@ -276,10 +276,10 @@
     clock.secondHand.setAttribute('x2', x);
     clock.secondHand.setAttribute('y2', y);
     var opp = ((q + 12) % 24);
-    x = clock.getX(opp, clock.secondHandLengthOfOtherSide);
-    y = clock.getY(opp, clock.secondHandLengthOfOtherSide);
-    clock.secondHandOpposite.setAttribute('x2', x);
-    clock.secondHandOpposite.setAttribute('y2', y);
+    x = clock.getX(opp, clock.secondHandLengthOfShortSide);
+    y = clock.getY(opp, clock.secondHandLengthOfShortSide);
+    clock.secondHandShortSide.setAttribute('x2', x);
+    clock.secondHandShortSide.setAttribute('y2', y);
   };
 
   clock.drawSlice = function (slice, hourS, hourF) {

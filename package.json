@@ -3,27 +3,26 @@
   "version": "1.0.0",
   "description": "Tron-style clocks and dials to manage your free time",
   "main": "gulpfile.js",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "gulp-gh-pages": "^0.5.4",
-    "browserify": "^12.0.1",
     "browser-sync": "^2.10.0",
+    "browserify": "^12.0.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
-    "gulp-imagemin": "^2.4.0",
     "gulp-concat": "^2.6.0",
-    "gulp-ruby-sass": "^2.0.5",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-imagemin": "^2.4.0",
     "gulp-jshint": "^2.0.0",
-    "gulp-uglify": "^1.5.1",
-    "jshint": "^2.8.0",
-    "gulp-watch": "^4.3.5",
     "gulp-rimraf": "^0.2.0",
+    "gulp-ruby-sass": "^2.0.5",
+    "gulp-uglify": "^1.5.1",
+    "gulp-watch": "^4.3.5",
     "jquery": "^2.1.4",
+    "jshint": "^2.8.0",
     "path": "^0.12.7",
     "run-sequence": "^1.1.5",
-    "vinyl-source-stream": "^1.1.0",
-    "vinyl-buffer": "^1.0.0"
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -1,6 +1,8 @@
 'use strict';
 
 var runSeq = require('run-sequence');
+var deploy = require('gulp-gh-pages');
+var config = require('./gulp/config')
 
 var gulp = require('./gulp')([
   'clean',
@@ -22,4 +24,12 @@ gulp.task('default', function (cb) {
     'browserSync',
     'watch',
   ], cb);
+});
+
+/**
+ * Push build to gh-pages (creates branch if it doesn't exist)
+ */
+gulp.task('deploy', function () {
+  return gulp.src('./' + config.root.dest + '**/*')
+  .pipe(deploy());
 });
